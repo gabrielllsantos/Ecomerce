@@ -1,4 +1,138 @@
-h1 {
-    color: brown;
-    font: 100px ;
+:root {
+    --primary-colo: #FF6B35;
+    --secundary-color: #2C3E50;
+    --accebt-color: #3498DB;
+    --text-color: #2C3E50;
+    --light-gray: #F8F9FA;
+    --border-color: #E9ECEF;
+    --white-color: #FFFFFF;
+    --hover-btn: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-gray);
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--white-color);
+    position: sticky;
+    padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.logo i {
+    font-style: 2rem;
+    color: var(--primary-colo);
+}
+
+.logo h1 {
+    font-size:  2rem;
+    color: var(--primary-colo);
+    font-weight: bold;
+}
+
+.search-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 2rem;
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    background-color: var(--light-gray);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.search-container input {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0.2rem;
+    font-size: 0.8rem;
+}
+
+.search-container i {
+    color: var(--primary-colo);
+}
+
+.categories-container {
+    background-color: var(--secundary-color);
+}
+
+.categories-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    color: var(--white-color);
+    border-radius: 1.5rem;
+    padding: 0.5rem 1.5rem;
+    cursor: pointer;
+    background: none;
+    
+}
+
+.category-btn:hover { 
+    background: var(--hover-btn);
+}
+
+.category-btn i {
+    font-size: 1rem;
+}
+
+.category-btn.active {
+    background-color: var(--primary-colo);
+}
+
+.hero-section {
+    background: #f3f2ff;
+    background: linear-gradient(337deg, rgba(243, 242, 255, 1) 0%, rgba(189, 189, 255, 1) 40%, rgba(115, 115, 255, 1) 100%);
+    color: var(--white-color);
+    text-align: center;
+    padding: 3rem 2rem;
+}
+
+.hero-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+}
+
+footer {
+    background-color: var(--secundary-color);
+    text-align: center;
+    padding: 2rem;
 }
