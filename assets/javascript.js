@@ -1,3 +1,6 @@
+
+let textoPesquisa = ""
+
 let products = [
     {
         id: 1,
@@ -82,6 +85,7 @@ let products = [
 ];
 
 let containerProducts = document.querySelector(".products-container")
+let input = document.querySelector(".search-input")
 
 function showProducts() {
     let htmlProducts = ""
@@ -103,4 +107,12 @@ function showProducts() {
     containerProducts.innerHTML = htmlProducts
    
 }
+
+function pesquisar(){
+    textoPesquisa = input.value
+
+    mostrarProdutos()
+}
+
 window.onload = showProducts
+input.addEventListener('input', pesquisar)
