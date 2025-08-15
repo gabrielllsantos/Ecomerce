@@ -1,6 +1,6 @@
 
 let textoPesquisa = ""
-
+let categorialAtual = "all"
 let products = [
     {
         id: 1,
@@ -86,12 +86,23 @@ let products = [
 
 let containerProducts = document.querySelector(".products-container")
 let input = document.querySelector(".search-input")
+let todosBotoes = document.querySelectorAll(".category-btn")
 
-function showProducts() {
+function mostrarProducts() {
+
     let htmlProducts = ""
+    
+    let productsFiltrados = products.filter(prd => {
 
+        let passouCategoria = (categorialAtual === "all" || prd.categoria === categorialAtual)
+        
+        let passouPesquisa = prd.nome.toLowerCase().includes(textoPesquisa.toLowerCase())
+        
+        return passouPesquisa && passouCategoria
+    })
 
-    products.forEach(prd => {
+    
+        productsFiltrados.forEach(prd => {
         htmlProducts = htmlProducts + `
             <div class="product-card">
                 <img class="product-img" src="${prd.imagem}" alt="${prd.nome}">
@@ -111,8 +122,37 @@ function showProducts() {
 function pesquisar(){
     textoPesquisa = input.value
 
-    mostrarProdutos()
+    mostrarProducts()
 }
 
-window.onload = showProducts
-input.addEventListener('input', pesquisar)
+function trocarCategoria(categoria){
+    categorialAtual = categoria 
+
+    todosBotoes.forEach(botao => {
+        botao.classList.remove("active")
+        
+        if(botao.getAttribute("data-category") === categoria){
+            botao.classList.add("active")
+        }
+    })
+
+
+    mostrarProducts()
+}
+
+
+window.addEventListener('DOMContentLoaded', () => {
+    
+    mostrarProducts()
+
+    input.addEventListener('input', pesquisar)
+
+    todosBotoes.forEach(botao => {
+        botao.addEventListener('click', () =>{
+            
+            let categoria = botao.getAttribute("data-category")
+
+            trocarCategoria(categoria)
+        })
+    })
+})
